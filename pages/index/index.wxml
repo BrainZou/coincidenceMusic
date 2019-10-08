@@ -1,9 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="username1">
-    <input placeholder="输入你的网易用户名"></input>
+  <view class="input-search">
+    <input placeholder="输入你的网易用户名" bindinput="myUserNameInput"></input>
   </view>
-  <view class="username2">
-    <input placeholder="对方的网易用户名"></input>
+  <view class="input-search">
+    <input placeholder="对方的网易用户名" bindinput="otherNameInput"></input>
   </view>
+  <button class='btn' plain='true' bindtap='sumbit' >确定</button>
 </view>

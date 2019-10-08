@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -19,11 +20,28 @@
 .usermotto {
   margin-top: 50px;
 }
-
-.username1{
-  margin-top: 50px;
+.input-search {
+  border: lightgrey;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 14px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 31px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
-
-.username2{
-  margin-top: 10px;
+.btn {
+  width: 100px;
+  height: 30px;
+  margin-top: 30px;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

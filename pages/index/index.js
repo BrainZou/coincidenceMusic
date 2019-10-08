@@ -4,51 +4,67 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    myUserName: '',
+    otherName: '',
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  
+  /*获取自己的用户名***/
+  myUserNameInput: function(e) {
+    this.setData({
+      myUserName: e.detail.value
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+  /*获取对方的用户名***/
+  otherNameInput: function(e) {
+    this.setData({
+      otherName: e.detail.value
+    })
+  },
+  /**查询提交 */
+  sumbit: function(e) {
+    var page = this;
+    if (this.data.myUserName == '') {
+      wx: wx.showToast({
+        title: '请输入你的姓名',
+        icon: 'none'
       })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+      return false
+    }
+    else if (this.data.otherName == '') {
+      wx: wx.showToast({
+        title: '请输入对方的用户名',
+        icon: 'none'
+      })
+      return false
+    }
+    wx.navigateTo({
+      url: '/pages/detail/detail?myUserName=' + this.data.myUserName + '&otherName=' + this.data.otherName
+    })
+  },
+
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '网易云歌单重合率',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功',
+          icon: 'none'
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+        wx.showToast({
+          title: '转发失败',
+          icon: 'none'
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
     }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   }
+
 })

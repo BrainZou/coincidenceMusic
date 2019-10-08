@@ -1,0 +1,43 @@
+/* pages/detail/detail.wxss */
+
+.textViewTitle {
+  font-size: 40rpx;
+  padding-left: 5rpx;
+  display: flex;
+  margin-top:25rpx;
+}
+.textView {
+  font-size: 32rpx;
+  padding-left: 5rpx;
+  display: flex;
+  margin-top:15rpx;
+  white-space:pre-wrap;
+}
+.loadimg{
+  margin-top: 25rpx;
+  padding-left: 25rpx;
+  display: block;
+  white-space:pre-wrap;
+}
+.loadimgHide{
+  display: none;
+}
+.loadimgSize{
+  height:20rpx;
+  width: 120rpx;
+}
+.textNumber{
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-left: 5rpx;
+  display: flex;
+  white-space:pre-wrap;
+}
+.songList{
+  font-size: 32rpx;
+  padding-left: 5rpx;
+  display: flex;
+  margin-top:15rpx;
+  white-space:pre-wrap;
+  line-height: 47rpx;
+}

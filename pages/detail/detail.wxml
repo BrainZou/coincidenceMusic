@@ -1,0 +1,42 @@
+<!--pages/detail/detail.wxml-->
+<view animation="{{anim[0]}}" style="opacity:0" class="textViewTitle">你的昵称:</view>
+<view animation="{{anim[0]}}" style="opacity:0" class="textView"> {{myUserName}}</view>
+<view animation="{{anim[1]}}" style="opacity:0" class="textViewTitle">对方的昵称:</view>
+<view animation="{{anim[1]}}" style="opacity:0" class="textView"> {{otherName}}</view>
+
+<!-- <view animation="{{anim[2]}}" style="opacity:0" class="textView">你的Id：{{myUserId}}</view>
+<view animation="{{anim[3]}}" style="opacity:0" class="textView">对方的Id：{{otherId}}</view>
+<view animation="{{anim[4]}}" style="opacity:0" class="textView">你喜欢的歌单Id：{{myPlayListId}}</view>
+<view animation="{{anim[5]}}" style="opacity:0" class="textView">对方喜欢的歌单Id：{{otherPlayListId}}</view> -->
+
+<view wx:if="{{loadingOne}}" class="loadimg">
+  <image class="loadimgSize" src="/images/loading.gif" mode="aspectFill" />
+</view>
+<view animation="{{anim[6]}}" style="opacity:0" class="textView">
+  <text decode="{{true}}">\n</text>
+</view>
+<view animation="{{anim[6]}}" style="opacity:0" class="textView">
+  <text >你们一共有 </text>
+  <text class="textNumber">{{count}}</text>
+  <text > 首歌曲</text>
+</view>
+<view animation="{{anim[7]}}" style="opacity:0" class="textView">
+  <text >重合部分有 </text>
+  <text class="textNumber">{{coincide}}</text>
+  <text > 首</text>
+</view>
+<view animation="{{anim[8]}}" style="opacity:0" class="textView">
+  <text >重合率为 </text>
+  <text class="textNumber">{{coincidenceRate}}</text>
+  <text class="textNumber">%</text>
+</view>
+
+<view wx:if="{{loadingTwo}}" class="loadimg">
+  <image class="loadimgSize" src="/images/loading.gif" mode="aspectFill" />
+</view>
+<view animation="{{anim[9]}}" style="opacity:0" class="textViewTitle">
+  <text decode="{{true}}">\n重合的歌曲分别是:</text>
+</view>
+<view animation="{{anim[9]}}" style="opacity:0" class="songList">
+  <text>{{coincideSongsDetail}}</text>
+</view>
